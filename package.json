@@ -7,8 +7,9 @@
   "main": "main.js",
   "dependencies": {
     "expo": "15.0.2",
-    "react": "~15.4.0",
+    "react": "15.4.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-15.0.0.tar.gz",
-    "react-navigation": "^1.0.0-beta.7"
+    "react-native-elements": "0.10.2",
+    "react-navigation": "1.0.0-beta.7"
   }
 }
