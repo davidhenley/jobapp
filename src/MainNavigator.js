@@ -24,7 +24,10 @@ const MainNavigator = TabNavigator({
     })
   }
 }, {
-  lazyLoad: true
+  lazyLoad: true,
+  navigationOptions: {
+    tabBar: { visible: false }
+  }
 });
 
 export default MainNavigator;

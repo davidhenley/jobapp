@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Facebook } from 'expo';
-import { View, Text } from 'react-native';
-
-const API_KEY = '209606516208844';
+import { View, Text, AsyncStorage } from 'react-native';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class AuthScreen extends Component {
-  async componentWillMount() {
-    await Facebook.logInWithReadPermissionsAsync(API_KEY, { permissions: ['public_profile'] });
+  componentDidMount() {
+    this.props.facebookLogin();
+    AsyncStorage.removeItem('fb_token');
   }
 
   render() {
@@ -26,4 +26,4 @@ const styles = {
   }
 }
 
-export default AuthScreen;
+export default connect(null, actions)(AuthScreen);
