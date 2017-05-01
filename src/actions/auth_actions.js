@@ -21,7 +21,7 @@ const doFacebookLogin = async dispatch => {
     permissions: ['public_profile']
   });
   if (type === 'cancel') {
-    return dispatch({ type: FACEBOOK_LOGIN_FAIL })
+    return dispatch({ type: FACEBOOK_LOGIN_FAIL });
   }
   await AsyncStorage.setItem('fb_token', token);
   dispatch({ type: FACEBOOK_LOGIN_SUCCESS, payload: token });
