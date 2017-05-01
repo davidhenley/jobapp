@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage } from 'react-native';
+import { View, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -20,18 +20,8 @@ class AuthScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>AuthScreen</Text>
-      </View>
+      <View />
     );
-  }
-}
-
-const styles = {
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
   }
 }
 

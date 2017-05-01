@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { AppLoading } from 'expo';
+import { ScrollView, View, Text, AsyncStorage } from 'react-native';
 import Slides from '../components/Slides';
 
 const SLIDE_DATA = [
@@ -9,11 +10,28 @@ const SLIDE_DATA = [
 ];
 
 class WelcomeScreen extends Component {
+  state = {
+    isReady: false
+  };
+
+  async componentWillMount() {
+    let token = await AsyncStorage.getItem('fb_token');
+    if (token) {
+      this.setState({ isReady: true });
+      this.props.navigation.navigate('map');
+    } else {
+      this.setState({ isReady: true });
+    }
+  }
+
   onSlidesComplete = () => {
     this.props.navigation.navigate('auth');
   }
 
   render() {
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
     return (
       <Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete} />
     );
