@@ -5,8 +5,8 @@ import { Button } from 'react-native-elements';
 class ReviewScreen extends Component {
   static navigationOptions = {
     title: 'Review Screen',
-    header: () => ({
-      right: <Button title="Settings" onPress={() => {}} />
+    header: ({ navigate }) => ({
+      right: <Button title="Settings" onPress={() => {navigate('settings')}} />
     })
   }
 
