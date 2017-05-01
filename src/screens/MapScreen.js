@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { MapView } from 'expo';
 import { View, Text } from 'react-native';
 
 class MapScreen extends Component {
@@ -8,18 +9,10 @@ class MapScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>MapScreen</Text>
+      <View style={{ flex: 1 }}>
+        <MapView style={{ flex: 1 }} />
       </View>
     );
-  }
-}
-
-const styles = {
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
   }
 }
 
