@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { MapView } from 'expo';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import { View, Text, ActivityIndicator } from 'react-native';
 
 class MapScreen extends Component {
@@ -46,4 +48,4 @@ class MapScreen extends Component {
   }
 }
 
-export default MapScreen;
+export default connect(null, actions)(MapScreen);
