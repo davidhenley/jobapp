@@ -59,6 +59,9 @@ class ReviewScreen extends Component {
   }
 
   render() {
+    if (this.props.likes.length === 0) {
+      return <View style={{ alignItems: 'center', marginTop: 20 }}><Text>No liked jobs found</Text></View>
+    }
     return (
       <ScrollView>
         {this.renderLikedJobs()}
