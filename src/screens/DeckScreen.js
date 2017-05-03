@@ -25,7 +25,7 @@ class DeckScreen extends Component {
           <MapView
             scrollEnabled={false}
             style={{ flex: 1 }}
-            cacheEnabled={Platform.OS === 'android' ? true : false}
+            cacheEnabled={Platform.OS === 'android'}
             initialRegion={initialRegion}
           />
         </View>
@@ -70,7 +70,8 @@ const styles = {
   detailWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10
+    marginBottom: 10,
+    marginTop: 10
   }
 }
 
