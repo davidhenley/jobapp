@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import { MapView } from 'expo';
 import { View, Text, Platform, ScrollView, Linking } from 'react-native';
-import { Button, Card } from 'react-native-elements';
+import { Button, Card, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 
 class ReviewScreen extends Component {
   static navigationOptions = {
-    title: 'Review Screen',
+    title: 'Review Jobs',
+    tabBar: {
+      icon: ({ tintColor }) => {
+        return (
+          <Icon
+            name="favorite"
+            size={30}
+            color={tintColor}
+          />
+        );
+      }
+    },
     header: ({ navigate }) => ({
       right: (
         <Button
@@ -60,7 +71,7 @@ class ReviewScreen extends Component {
 
   render() {
     if (this.props.likes.length === 0) {
-      return <View style={{ alignItems: 'center', marginTop: 20 }}><Text>No liked jobs found</Text></View>
+      return <View style={styles.container}><Text>No liked jobs found</Text></View>
     }
     return (
       <ScrollView>
@@ -71,6 +82,11 @@ class ReviewScreen extends Component {
 }
 
 const styles = {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   detailWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',

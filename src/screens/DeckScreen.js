@@ -4,11 +4,22 @@ import { connect } from 'react-redux';
 import Swipe from '../components/Swipe';
 import * as actions from '../actions';
 import { MapView } from 'expo';
-import { Card, Button } from 'react-native-elements';
+import { Card, Button, Icon } from 'react-native-elements';
 
 class DeckScreen extends Component {
   static navigationOptions = {
-    title: 'Deck'
+    title: 'Jobs',
+    tabBar: {
+      icon: ({ tintColor }) => {
+        return (
+          <Icon
+            name="description"
+            size={30}
+            color={tintColor}
+          />
+        );
+      }
+    }
   };
 
   renderCard(job) {
@@ -40,9 +51,16 @@ class DeckScreen extends Component {
     );
   }
 
-  renderNoMoreCards() {
+  renderNoMoreCards = () => {
     return (
       <Card title="No more jobs">
+        <Button
+          title="Back to Map"
+          large
+          icon={{ name: 'my-location' }}
+          backgroundColor="#03A9F4"
+          onPress={() => this.props.navigation.navigate('map')}
+        />
       </Card>
     );
   }
